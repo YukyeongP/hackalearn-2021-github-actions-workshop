@@ -1,8 +1,7 @@
 # issue maker trigger하는 액션
-
 name: Joke Issue Maker
 
-description:: Get Joke from random-joke and create new Issue
+description: Get Joke from random-joke and create new Issue
 
 inputs: # 받아오는 것
   issueTitle:
