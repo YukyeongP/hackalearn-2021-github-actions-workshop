@@ -1,0 +1,19 @@
+# issue maker trigger하는 액션
+
+name: Joke Issue Maker
+
+description:: Get Joke from random-joke and create new Issue
+
+inputs: # 받아오는 것
+  issueTitle:
+    description: Issue Title
+  joke:
+    description: Joke URL
+    required: true
+  repoToken: #github rep에 issue 생성하려면 read하고 write하는 권한이 필요한데 그것을 넘겨주는 장치
+    description: "Authentication token, use secretes.GITHUB_TOKEN"
+    required: true
+
+  runs:
+    using: "docker"
+    image: "Dockerfile"

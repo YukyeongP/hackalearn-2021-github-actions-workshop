@@ -1,9 +1,8 @@
-name : Hello team
 name: Joke Docker Action
 
 description: Jokes to team
   
-outputs: 
+outputs: #output을 joke로 받아오겠다
   joke:
     description: Return joke to team from Joke API
   

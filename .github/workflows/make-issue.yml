@@ -1,0 +1,26 @@
+name: Create Joke Issue
+
+# Controls when the workflow will run
+on: push # 아무 브랜치나 들어와도
+ 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  action: 
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      
+      - name: Random Joke Action for team
+        uses: ./.github/actions/random-joke
+        id: random-joke #다양한 action에 고유한 id 필요
+
+      - name: Create Issue joke
+        uses: ./.github/actions/issue-maker
+        with: 
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          joke: ${{steps.random-joke.outputs.joke}} #고유한 id에 action에서 나온 output이 
+          issueTitle: "Random joke for team!!"
